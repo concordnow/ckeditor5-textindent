@@ -1,0 +1,42 @@
+{
+  "name": "ckeditor5-textindent",
+  "version": "0.0.0",
+  "description": "Text indentation feature for CK Editor 5",
+  "main": "",
+  "author": "Concordnow Worldwide Inc.",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/concordnow/ckeditor5-textindent.git"
+  },
+  "keywords": [
+    "ckeditor",
+    "ckeditor5",
+    "ckeditor5-plugin",
+    "ckeditor5-converter",
+    "text-indent"
+  ],
+  "scripts": {
+    "test": "node ./node_modules/.bin/ckeditor5-dev-tests",
+    "manual": "node ./node_modules/.bin/ckeditor5-dev-tests-manual"
+  },
+  "bugs": {
+    "url": "https://github.com/concordnow/ckeditor5-textindent/issues"
+  },
+  "devDependencies": {
+    "@ckeditor/ckeditor5-dev-tests": "^16.4.2",
+    "eslint": "^6.1.0",
+    "eslint-config-ckeditor5": "^2.0.0",
+    "yarn": "^1.17.3"
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-core": "^12.3.0"
+  },
+  "files": [
+    "src"
+  ],
+  "engines": {
+    "node": ">=8.0.0"
+  }
+}
