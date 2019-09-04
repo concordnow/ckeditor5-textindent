@@ -4,6 +4,7 @@ import { getData as getViewData } from '@ckeditor/ckeditor5-engine/src/dev-utils
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 
 import TextIndent from './../src/textindent';
+import { getRoundedValue } from '../src/utils';
 
 describe( 'TextIndent', () => {
 	let editor, model, doc;
@@ -55,6 +56,32 @@ describe( 'TextIndent', () => {
 
 			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
 				.to.equal( '<p style="text-indent:-24px">foo</p>' );
+		} );
+
+		it( 'should convert pt in px and keep text-indent in paragraph', () => {
+			editor.setData( '<p style="text-indent:24pt;">foo</p>' );
+
+			const paragraph = doc.getRoot().getChild( 0 );
+			const convertedValue = getRoundedValue( '24pt' );
+
+			expect( paragraph.hasAttribute( 'textIndent' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'textIndent' ) ).to.equal( convertedValue );
+
+			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
+				.to.equal( `<p style="text-indent:${ convertedValue }px">foo</p>` );
+		} );
+
+		it( 'should convert pt in px and keep negative text-indent in paragraph', () => {
+			editor.setData( '<p style="text-indent:-24pt;">foo</p>' );
+
+			const paragraph = doc.getRoot().getChild( 0 );
+			const convertedValue = getRoundedValue( '-24pt' );
+
+			expect( paragraph.hasAttribute( 'textIndent' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'textIndent' ) ).to.equal( convertedValue );
+
+			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
+				.to.equal( `<p style="text-indent:${ convertedValue }px">foo</p>` );
 		} );
 	} );
 } );
