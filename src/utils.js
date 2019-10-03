@@ -12,3 +12,8 @@ export function getRoundedValue( value ) {
 
 	return Math.round( value );
 }
+
+export function getRoundedValues( values ) {
+	return values.split( ' ' )
+		.map( value => getRoundedValue( value ) );
+}
