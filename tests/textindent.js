@@ -1,10 +1,11 @@
 import TextIndent from './../src/textindent';
 import HorizontalTextIndent from './../src/horizontaltextindent';
 import VerticalTextIndent from './../src/verticaltextindent';
+import FullTextIndent from './../src/fulltextindent';
 
 describe( 'TextIndent', () => {
-	it( 'requires HorizontalTextIndent and VerticalTextIndent', () => {
-		expect( TextIndent.requires ).to.deep.equal( [ HorizontalTextIndent, VerticalTextIndent ] );
+	it( 'requires HorizontalTextIndent, VerticalTextIndent and FullTextIndent', () => {
+		expect( TextIndent.requires ).to.deep.equal( [ HorizontalTextIndent, VerticalTextIndent, FullTextIndent ] );
 	} );
 
 	it( 'defines plugin name', () => {
