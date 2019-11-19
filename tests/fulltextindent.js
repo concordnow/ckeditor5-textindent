@@ -40,8 +40,8 @@ describe( 'FullTextIndent', () => {
 
 			const paragraph = doc.getRoot().getChild( 0 );
 
-			expect( paragraph.hasAttribute( 'margin' ) ).to.be.true;
-			expect( paragraph.getAttribute( 'margin' ) ).to.deep.equal( [ 24, 8, 12, 6 ] );
+			expect( paragraph.hasAttribute( 'customMargin' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMargin' ) ).to.deep.equal( [ 24, 8, 12, 6 ] );
 
 			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
 				.to.equal( '<p style="margin:24px 8px 12px 6px">foo</p>' );
@@ -52,8 +52,8 @@ describe( 'FullTextIndent', () => {
 
 			const paragraph = doc.getRoot().getChild( 0 );
 
-			expect( paragraph.hasAttribute( 'margin' ) ).to.be.true;
-			expect( paragraph.getAttribute( 'margin' ) ).to.deep.equal( [ 24, 8, 12 ] );
+			expect( paragraph.hasAttribute( 'customMargin' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMargin' ) ).to.deep.equal( [ 24, 8, 12 ] );
 
 			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
 				.to.equal( '<p style="margin:24px 8px 12px">foo</p>' );
@@ -64,8 +64,8 @@ describe( 'FullTextIndent', () => {
 
 			const paragraph = doc.getRoot().getChild( 0 );
 
-			expect( paragraph.hasAttribute( 'margin' ) ).to.be.true;
-			expect( paragraph.getAttribute( 'margin' ) ).to.deep.equal( [ 24, 8 ] );
+			expect( paragraph.hasAttribute( 'customMargin' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMargin' ) ).to.deep.equal( [ 24, 8 ] );
 
 			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
 				.to.equal( '<p style="margin:24px 8px">foo</p>' );
@@ -76,8 +76,8 @@ describe( 'FullTextIndent', () => {
 
 			const paragraph = doc.getRoot().getChild( 0 );
 
-			expect( paragraph.hasAttribute( 'margin' ) ).to.be.true;
-			expect( paragraph.getAttribute( 'margin' ) ).to.deep.equal( [ 24 ] );
+			expect( paragraph.hasAttribute( 'customMargin' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMargin' ) ).to.deep.equal( [ 24 ] );
 
 			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
 				.to.equal( '<p style="margin:24px">foo</p>' );
@@ -88,8 +88,8 @@ describe( 'FullTextIndent', () => {
 
 			const paragraph = doc.getRoot().getChild( 0 );
 
-			expect( paragraph.hasAttribute( 'margin' ) ).to.be.true;
-			expect( paragraph.getAttribute( 'margin' ) ).to.deep.equal( [ -24, -8, -12, -6 ] );
+			expect( paragraph.hasAttribute( 'customMargin' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMargin' ) ).to.deep.equal( [ -24, -8, -12, -6 ] );
 
 			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
 				.to.equal( '<p style="margin:-24px -8px -12px -6px">foo</p>' );
@@ -101,8 +101,8 @@ describe( 'FullTextIndent', () => {
 			const paragraph = doc.getRoot().getChild( 0 );
 			const convertedValue = getRoundedValues( '24pt 8pt 12pt 6pt' );
 
-			expect( paragraph.hasAttribute( 'margin' ) ).to.be.true;
-			expect( paragraph.getAttribute( 'margin' ) ).to.deep.equal( convertedValue );
+			expect( paragraph.hasAttribute( 'customMargin' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMargin' ) ).to.deep.equal( convertedValue );
 
 			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
 				.to.equal( `<p style="margin:${ getRoundedValue( '24pt' ) }px ${ getRoundedValue( '8pt' ) }px ${ getRoundedValue( '12pt' ) }px ${ getRoundedValue( '6pt' ) }px">foo</p>` ); // eslint-disable-line max-len
@@ -114,8 +114,8 @@ describe( 'FullTextIndent', () => {
 			const paragraph = doc.getRoot().getChild( 0 );
 			const convertedValue = getRoundedValues( '-24pt -8pt -12pt -6pt' );
 
-			expect( paragraph.hasAttribute( 'margin' ) ).to.be.true;
-			expect( paragraph.getAttribute( 'margin' ) ).to.deep.equal( convertedValue );
+			expect( paragraph.hasAttribute( 'customMargin' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMargin' ) ).to.deep.equal( convertedValue );
 
 			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
 				.to.equal( `<p style="margin:${ getRoundedValue( '-24pt' ) }px ${ getRoundedValue( '-8pt' ) }px ${ getRoundedValue( '-12pt' ) }px ${ getRoundedValue( '-6pt' ) }px">foo</p>` );// eslint-disable-line max-len

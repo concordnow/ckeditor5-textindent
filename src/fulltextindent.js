@@ -17,7 +17,7 @@ export default class FullTextIndent extends Plugin {
 				}
 			},
 			model: {
-				key: 'margin',
+				key: 'customMargin',
 				value: viewElement => {
 					return getRoundedValues( viewElement.getStyle( 'margin' ) );
 				}
@@ -25,7 +25,7 @@ export default class FullTextIndent extends Plugin {
 		} );
 
 		conversion.for( 'downcast' ).attributeToAttribute( {
-			model: 'margin',
+			model: 'customMargin',
 			view: modelAttributeValue => {
 				if ( !modelAttributeValue ) {
 					return;
