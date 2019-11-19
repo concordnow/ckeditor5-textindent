@@ -40,8 +40,8 @@ describe( 'VerticalTextIndent', () => {
 
 			const paragraph = doc.getRoot().getChild( 0 );
 
-			expect( paragraph.hasAttribute( 'marginTop' ) ).to.be.true;
-			expect( paragraph.getAttribute( 'marginTop' ) ).to.equal( 24 );
+			expect( paragraph.hasAttribute( 'customMarginTop' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMarginTop' ) ).to.equal( 24 );
 
 			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
 				.to.equal( '<p style="margin-top:24px">foo</p>' );
@@ -52,8 +52,8 @@ describe( 'VerticalTextIndent', () => {
 
 			const paragraph = doc.getRoot().getChild( 0 );
 
-			expect( paragraph.hasAttribute( 'marginTop' ) ).to.be.true;
-			expect( paragraph.getAttribute( 'marginTop' ) ).to.equal( -24 );
+			expect( paragraph.hasAttribute( 'customMarginTop' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMarginTop' ) ).to.equal( -24 );
 
 			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
 				.to.equal( '<p style="margin-top:-24px">foo</p>' );
@@ -65,8 +65,8 @@ describe( 'VerticalTextIndent', () => {
 			const paragraph = doc.getRoot().getChild( 0 );
 			const convertedValue = getRoundedValue( '24pt' );
 
-			expect( paragraph.hasAttribute( 'marginTop' ) ).to.be.true;
-			expect( paragraph.getAttribute( 'marginTop' ) ).to.equal( convertedValue );
+			expect( paragraph.hasAttribute( 'customMarginTop' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMarginTop' ) ).to.equal( convertedValue );
 
 			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
 				.to.equal( `<p style="margin-top:${ convertedValue }px">foo</p>` );
@@ -78,8 +78,8 @@ describe( 'VerticalTextIndent', () => {
 			const paragraph = doc.getRoot().getChild( 0 );
 			const convertedValue = getRoundedValue( '-24pt' );
 
-			expect( paragraph.hasAttribute( 'marginTop' ) ).to.be.true;
-			expect( paragraph.getAttribute( 'marginTop' ) ).to.equal( convertedValue );
+			expect( paragraph.hasAttribute( 'customMarginTop' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMarginTop' ) ).to.equal( convertedValue );
 
 			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
 				.to.equal( `<p style="margin-top:${ convertedValue }px">foo</p>` );
@@ -90,8 +90,8 @@ describe( 'VerticalTextIndent', () => {
 
 			const paragraph = doc.getRoot().getChild( 0 );
 
-			expect( paragraph.hasAttribute( 'marginBottom' ) ).to.be.true;
-			expect( paragraph.getAttribute( 'marginBottom' ) ).to.equal( 24 );
+			expect( paragraph.hasAttribute( 'customMarginBottom' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMarginBottom' ) ).to.equal( 24 );
 
 			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
 				.to.equal( '<p style="margin-bottom:24px">foo</p>' );
@@ -102,8 +102,8 @@ describe( 'VerticalTextIndent', () => {
 
 			const paragraph = doc.getRoot().getChild( 0 );
 
-			expect( paragraph.hasAttribute( 'marginBottom' ) ).to.be.true;
-			expect( paragraph.getAttribute( 'marginBottom' ) ).to.equal( -24 );
+			expect( paragraph.hasAttribute( 'customMarginBottom' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMarginBottom' ) ).to.equal( -24 );
 
 			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
 				.to.equal( '<p style="margin-bottom:-24px">foo</p>' );
@@ -115,8 +115,8 @@ describe( 'VerticalTextIndent', () => {
 			const paragraph = doc.getRoot().getChild( 0 );
 			const convertedValue = getRoundedValue( '24pt' );
 
-			expect( paragraph.hasAttribute( 'marginBottom' ) ).to.be.true;
-			expect( paragraph.getAttribute( 'marginBottom' ) ).to.equal( convertedValue );
+			expect( paragraph.hasAttribute( 'customMarginBottom' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMarginBottom' ) ).to.equal( convertedValue );
 
 			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
 				.to.equal( `<p style="margin-bottom:${ convertedValue }px">foo</p>` );
@@ -128,8 +128,8 @@ describe( 'VerticalTextIndent', () => {
 			const paragraph = doc.getRoot().getChild( 0 );
 			const convertedValue = getRoundedValue( '-24pt' );
 
-			expect( paragraph.hasAttribute( 'marginBottom' ) ).to.be.true;
-			expect( paragraph.getAttribute( 'marginBottom' ) ).to.equal( convertedValue );
+			expect( paragraph.hasAttribute( 'customMarginBottom' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMarginBottom' ) ).to.equal( convertedValue );
 
 			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
 				.to.equal( `<p style="margin-bottom:${ convertedValue }px">foo</p>` );

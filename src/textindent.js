@@ -21,7 +21,7 @@ export default class TextIndent extends Plugin {
 
 		knownElements.forEach( elementName => {
 			if ( schema.isRegistered( elementName ) ) {
-				schema.extend( elementName, { allowAttributes: [ 'textIndent', 'marginTop', 'marginBottom', 'customMargin' ] } );
+				schema.extend( elementName, { allowAttributes: [ 'textIndent', 'customMarginTop', 'customMarginBottom', 'customMargin' ] } );
 			}
 		} );
 	}

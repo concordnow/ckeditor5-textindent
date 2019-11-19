@@ -11,8 +11,8 @@ export default class VerticalTextIndent extends Plugin {
 		const conversion = this.editor.conversion;
 
 		const margins = [
-			[ 'marginTop', 'margin-top' ],
-			[ 'marginBottom', 'margin-bottom' ]
+			[ 'customMarginTop', 'margin-top' ],
+			[ 'customMarginBottom', 'margin-bottom' ]
 		];
 
 		const marginsMap = new Map( margins );
