@@ -84,5 +84,55 @@ describe( 'HorizontalTextIndent', () => {
 			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
 				.to.equal( `<p style="text-indent:${ convertedValue }px">foo</p>` );
 		} );
+
+		it( 'should keep margin-left in paragraph', () => {
+			editor.setData( '<p style="margin-left:24px;">foo</p>' );
+
+			const paragraph = doc.getRoot().getChild( 0 );
+
+			expect( paragraph.hasAttribute( 'customMarginLeft' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMarginLeft' ) ).to.equal( 24 );
+
+			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
+				.to.equal( '<p style="margin-left:24px">foo</p>' );
+		} );
+
+		it( 'should convert pt in px and keep margin-left in paragraph', () => {
+			editor.setData( '<p style="margin-left:-24pt;">foo</p>' );
+
+			const paragraph = doc.getRoot().getChild( 0 );
+			const convertedValue = getRoundedValue( '-24pt' );
+
+			expect( paragraph.hasAttribute( 'customMarginLeft' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMarginLeft' ) ).to.equal( convertedValue );
+
+			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
+				.to.equal( `<p style="margin-left:${ convertedValue }px">foo</p>` );
+		} );
+
+		it( 'should keep margin-right in paragraph', () => {
+			editor.setData( '<p style="margin-right:24px;">foo</p>' );
+
+			const paragraph = doc.getRoot().getChild( 0 );
+
+			expect( paragraph.hasAttribute( 'customMarginRight' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMarginRight' ) ).to.equal( 24 );
+
+			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
+				.to.equal( '<p style="margin-right:24px">foo</p>' );
+		} );
+
+		it( 'should convert pt in px and keep margin-right in paragraph', () => {
+			editor.setData( '<p style="margin-right:-24pt;">foo</p>' );
+
+			const paragraph = doc.getRoot().getChild( 0 );
+			const convertedValue = getRoundedValue( '-24pt' );
+
+			expect( paragraph.hasAttribute( 'customMarginRight' ) ).to.be.true;
+			expect( paragraph.getAttribute( 'customMarginRight' ) ).to.equal( convertedValue );
+
+			expect( getViewData( editor.editing.view, { withoutSelection: true } ) )
+				.to.equal( `<p style="margin-right:${ convertedValue }px">foo</p>` );
+		} );
 	} );
 } );

@@ -10,28 +10,39 @@ export default class HorizontalTextIndent extends Plugin {
 	init() {
 		const conversion = this.editor.conversion;
 
-		conversion.for( 'upcast' ).attributeToAttribute( {
-			view: {
-				styles: {
-					'text-indent': /[\s\S]+/
-				}
-			},
-			model: {
-				key: 'textIndent',
-				value: viewElement => getRoundedValue( viewElement.getStyle( 'text-indent' ) )
-			}
-		} );
+		const horizontalIndents = [
+			[ 'textIndent', 'text-indent' ],
+			[ 'customMarginLeft', 'margin-left' ],
+			[ 'customMarginRight', 'margin-right' ]
+		];
 
-		conversion.for( 'downcast' ).attributeToAttribute( {
-			model: 'textIndent',
-			view: modelAttributeValue => {
-				return {
-					key: 'style',
-					value: {
-						'text-indent': modelAttributeValue + 'px'
+		const horizontalIndentsMap = new Map( horizontalIndents );
+
+		horizontalIndentsMap.forEach( ( mapValue, mapKey ) => {
+			conversion.for( 'upcast' ).attributeToAttribute( {
+				view: {
+					name: 'p',
+					styles: {
+						[ mapValue ]: /[\s\S]+/
 					}
-				};
-			}
+				},
+				model: {
+					key: mapKey,
+					value: viewElement => getRoundedValue( viewElement.getStyle( mapValue ) )
+				}
+			} );
+
+			conversion.for( 'downcast' ).attributeToAttribute( {
+				model: mapKey,
+				view: modelAttributeValue => {
+					return {
+						key: 'style',
+						value: {
+							[ mapValue ]: modelAttributeValue + 'px'
+						}
+					};
+				}
+			} );
 		} );
 	}
 }
