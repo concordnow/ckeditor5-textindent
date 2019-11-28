@@ -17,16 +17,14 @@ export default class TextIndent extends Plugin {
 		const editor = this.editor;
 		const schema = editor.model.schema;
 
-		const knownElements = [ 'paragraph', 'heading1', 'heading2', 'heading3', 'heading4', 'heading5', 'heading6' ];
+		const knownElement = 'paragraph';
 
-		knownElements.forEach( elementName => {
-			if ( schema.isRegistered( elementName ) ) {
-				schema.extend( elementName, {
-					allowAttributes: [
-						'textIndent', 'customMarginLeft', 'customMarginRight', 'customMarginTop', 'customMarginBottom', 'customMargin'
-					]
-				} );
-			}
-		} );
+		if ( schema.isRegistered( knownElement ) ) {
+			schema.extend( knownElement, {
+				allowAttributes: [
+					'textIndent', 'customMarginLeft', 'customMarginRight', 'customMarginTop', 'customMarginBottom', 'customMargin'
+				]
+			} );
+		}
 	}
 }

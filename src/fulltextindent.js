@@ -12,6 +12,7 @@ export default class FullTextIndent extends Plugin {
 
 		conversion.for( 'upcast' ).attributeToAttribute( {
 			view: {
+				name: 'p',
 				styles: {
 					'margin': /[\s\S]+/
 				}
